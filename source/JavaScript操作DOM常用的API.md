@@ -32,7 +32,7 @@ Node 有一个`nodeType`的属性表示Node 的类型，是一个整数，不同
 |`Node.NOTATION_NODE`            | 12 |一个XML `<!NOTATION ...>`节点。在DOM4 规范里被移除|
 
 假设我们要判断一个Node 是不是一个`元素`，通过查表可知`元素`的`nodeType`属性值为1，代码可以这么写：
-```
+```JavaScript
 if(X.nodeType === 1){
   console.log('X 是一个元素');
 }
