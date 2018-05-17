@@ -1,7 +1,7 @@
 # 更新记录
 
 ## 2018.05.17
-[函数的this、Call Stack、作用域初体](https://github.com/YyzclYang/blog/blob/master/source/2018.05.17%20%E5%87%BD%E6%95%B0%E7%9A%84this%E3%80%81Call%20Stack%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%9D%E4%BD%93%E9%AA%8C.md)
+[函数的this、Call Stack、作用域初体验](https://github.com/YyzclYang/blog/blob/master/source/2018.05.17%20%E5%87%BD%E6%95%B0%E7%9A%84this%E3%80%81Call%20Stack%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%9D%E4%BD%93%E9%AA%8C.md)
 
 ## 2018.05.15
 [JavaScript的对象型数组(Array)](https://github.com/YyzclYang/blog/blob/master/source/2018.05.15%20JavaScript%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%9E%8B%E6%95%B0%E7%BB%84(Array).md)
