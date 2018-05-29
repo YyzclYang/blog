@@ -1,7 +1,7 @@
 # 更新记录
 
 ### 2018.05.29
-[浅谈Flex布局的属性及使](https://github.com/YyzclYang/blog/blob/master/source/2018.05.29%20%E6%B5%85%E8%B0%88Flex%E5%B8%83%E5%B1%80%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E4%BD%BF%E7%94%A8.md)
+[浅谈Flex布局的属性及使用](https://github.com/YyzclYang/blog/blob/master/source/2018.05.29%20%E6%B5%85%E8%B0%88Flex%E5%B8%83%E5%B1%80%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E4%BD%BF%E7%94%A8.md)
 
 ## 2018.05.21
 [来学着写自己的“jQuery”](https://github.com/YyzclYang/blog/blob/master/source/2018.05.21%20%E6%9D%A5%E5%AD%A6%E7%9D%80%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E2%80%9CjQuery%E2%80%9D.md)
