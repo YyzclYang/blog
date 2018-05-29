@@ -1,0 +1,315 @@
+网页布局是CSS的一个重点<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943af11f3a5?w=403&h=352&f=gif&s=9612)
+传统的布局解决方案，是基于盒装模型，主要依赖的属性有：
+>normal flow（文档流）<br>
+>float + clear<br>
+>position relative + absolute<br>
+>display<br>
+>负margin
+
+这些属性在进行页面布局时，组合使用以实现所需要的页面，但对于一些特殊的布局，实现就有些麻烦了
+
+## 1 Flex布局介绍
+Flex 是 Flexible Box 的缩写，意思为“弹性布局”
+
+### 1.1 Flex布局的特点
+1. 块级布局侧重垂直方向、行内布局侧重水平方向，而Flex布局是与方向无关的
+2. Flex布局可以实现空间自动分配、自动对齐（弹性、灵活）
+3. Flex布局适用于简单的线性布局，更复杂的布局使用Grid布局
+
+### 1.2 开启Flex布局
+开启Flex布局时，只需要在父级元素上写上`display: flex;`，具体如下所示：
+```CSS
+.box{
+  display: flex;
+}
+//行内元素也可以
+.box{
+  display: inline-flex;
+}
+//Webkit内核的浏览器，需加上前缀
+.box{
+  display: -webkit-flex;
+}
+```
+
+### 1.3 Flex容器基本概念
+
+采用Flex布局的元素，可以看做一个Flex容器，其属性表示如下图所示：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943acf1f859?w=1191&h=518&f=png&s=167422)
+Flex容器默认有两根轴：主轴（main axis）和侧轴（cross axis）。在默认情况下主轴是水平分布的，侧轴是垂直分布的，但可以通过`flex-direction`来改变主侧轴的分布方向。所以并不能说，水平分布的是主轴，垂直分布的是侧轴。
+
+## 2 父元素的属性
+Flex布局的父元素共有6中属性可以设置，分别为：
+>flex-direction<br>
+>flex-wrap<br>
+>flex-flow<br>
+>justify-content<br>
+>align-items<br>
+>align-content
+
+### 2.1 flex-direction
+`flex-direction`属性决定主轴的方向（前面说过，不能说水平是主轴，垂直是侧轴，就是因为这个属性），它一共有4个值：
+>row: 默认值，主轴为水平方向从左到右；<br>
+>row-reverse: 主轴为水平方向从右到左；<br>
+>column: 主轴为垂直方向从上到下；<br>
+>column-reverse: 主轴为垂直方向从下到上
+
+示意图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943ace6104c?w=796&h=203&f=png&s=7519)
+
+代码实现效果如下：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943acd4ac6a?w=544&h=343&f=gif&s=115550)
+
+### 2.2 flex-wrap
+默认的情况下，Flex容器中的子元素都排在一行，如果子元素的总宽度大于父元素的宽度，子元素就会被压缩。`flex-wrap`属性可以设置子元素换行，它一共有3个值：
+>nowrap: 默认值，不换行<br>
+>wrap: 换行，第一行在上方<br>
+>wrap: 换行，第一行在下方
+
+示意图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943af279d28?w=700&h=700&f=jpeg&s=136910)
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943af32f18d?w=544&h=343&f=gif&s=90495)
+
+### 2.3 flex-flow
+`flex-flow`属性是`flex-direction`和`flex-wrap`的组合，它是将这两个属性写到一起，先写`flex-direction`，后写`flex-wrap`，默认值为`row nowrap`
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943e25760aa?w=557&h=360&f=png&s=21846)
+
+### 2.4 justify-content
+`justify-content`属性定义子元素在主轴上的对齐方式，它主要有5种取值：
+>flex-start: 默认值，从起点开始<br>
+>flex-end: 从终点对齐<br>
+>cneter: 居中对齐<br>
+>space-between: 两端对齐，子元素之间的间隔相等<br>
+>space-around: 每个子元素的左右间隔相等
+
+示意图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943f0601b02?w=637&h=763&f=png&s=7217)
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943ee20cdf5?w=697&h=359&f=gif&s=151411)
+
+### 2.5 align-items
+`align-items`属性定义子元素在侧轴上的对齐方式，主要由5种取值：
+>strech: 默认值，子元素的高度铺满父元素<br>
+>flex-start: 子元素从侧轴起点对齐<br>
+>flex-end: 子元素从侧轴终点对齐<br>
+>center: 子元素根据侧轴居中对齐<br>
+>baseline: 根据子元素第一行文字的基线对齐(当字体大小不一致时，突出效果)
+
+**注意：** 应用此属性时，子元素的高度不能写死，应该由其内容撑起来
+
+示意图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab943f15401f7?w=617&h=786&f=png&s=8343)
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab94407f9070b?w=697&h=419&f=gif&s=129160)
+
+### 2.6 align-content
+`align-content`属性定义子元素多根轴线在侧轴上的对齐方式，只在多行显示下有效。主要取以下5个值：
+>stretch: 默认值，轴线铺满侧轴<br>
+>flex-start: 与侧轴起点对齐<br>
+>flex-end: 与侧轴终点对齐<br>
+>center: 与侧轴中点对齐<br>
+>space-between: 与侧轴两端对齐，轴线之间的间隔相等<br>
+>space-around: 每根轴线两侧的间隔相等
+
+示意图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab94410ab2e33?w=620&h=786&f=png&s=8280)
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab9441ed27f3d?w=538&h=282&f=gif&s=141521)
+
+## 3 子元素属性
+Flex布局的子元素共有6种属性可以设置，分别为：
+>flex-grow<br>
+>flex-shrink<br>
+>flex-basis<br>
+>flex<br>
+>order<br>
+>align-self
+
+### 3.1 flex-grow
+`flex-grow`属性表示当父元素空间有剩余时，将剩余空间分配给各子元素的比例，默认为`0`，表示不分配；当为数值时，表示父元素剩余空间分配给各子元素的比例，不是扩张后子元素的尺寸比例
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab9441570e9a0?w=573&h=446&f=gif&s=99670)
+
+### 3.2 flex-shrink
+`flex-shrink`属性与`flex-grow`属性的作用相反，表示当子元素宽度总和大于父元素宽度，且未换行显示时，各子元素压缩大小，默认为`1`，表示各子元素等比压缩；当数值不一时，表示各子元素因为压缩空间而减小的尺寸的比例，不是压缩后子元素尺寸的比例
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab94432170a04?w=573&h=446&f=gif&s=82627)
+
+### 3.3 flex-basis
+`flex-basis`属性可以用来设置子元素的空间，默认值为`auto`，表示为原本大小。当父元素有剩余空间时，可通过此属性扩充子元素的空间；各子元素通过扩孔之后的空间总和超过了父元素的空间大小时，按`flex-basis`值比例来设置子元素的大小，没有`flex-basis`属性时，默认`flex-basis`值为子元素原本大小，使子元素大小总和不得超过父元素空间大小
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab9445de6b0b6?w=573&h=298&f=gif&s=47406)
+
+### 3.4 flex
+`flex`属性是`flex-grow`、`flex-shrink`和`flex-basis`的合集，默认值为`0 1 auto`，后两个属性可不写
+
+### 3.5 order
+`order`属性定义子元素在排列顺序，默认值为`0`，值越小越靠前
+
+代码实现效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab9444c85f726?w=573&h=437&f=gif&s=64379)
+
+### 3.6 align-self
+`align-self`属性允许子元素单独设置对齐方式，优先级比父元素的`align-items`高。默认值为`auto`，表示继承父元素的`align-items`，如果没有父元素，则等同于`stretch`。其可设置以下属性：
+>auto: 继承父元素的`align-items`<br>
+>stretch<br>
+>flex-start<br>
+>flex-end<br>
+>center<br>
+>baseline
+
+除了`auto`值，其他值与父元素的`align-items`属性效果一样
+
+## 4 几个flex布局
+### 4.1 上中下布局
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header{
+      height: 100px;
+      background: #ddd;
+    }
+    main{
+      flex-grow: 1;
+    }
+    footer{
+      height: 100px;
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+<header>heafer</header>
+<main>main</main>
+<footer>footer</footer>
+</body>
+</html>
+```
+
+代码效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab94455a18520?w=375&h=444&f=png&s=5425)
+
+### 4.2 九宫格
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    *{padding:0;}
+    ul{
+      list-style: none;
+      border: 1px solid black;
+      width: 170px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    li{
+      width: 50px;
+      height: 50px;
+      border: 1px solid red;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</body>
+</html>
+```
+
+代码效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab944643f0253?w=195&h=210&f=png&s=751)
+
+### 4.3 一般PC布局
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header{
+      height: 50px;
+      background: #ddd;
+    }
+    main{
+      flex-grow: 1;
+      display: flex;
+    }
+    .aside1{
+      width: 100px;
+      background: #aaa;
+    }
+    .aside2{
+      flex-grow: 1;
+    }
+    .aside3{
+      width: 100px;
+      background: #aaa;
+    }
+    footer{
+      height: 50px;
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+<header>header</header>
+<main>
+  <aside class="aside1">aside1</aside>
+  <aside class="aside2">aside2</aside>
+  <aside class="aside3">aside3</aside>
+</main>
+<footer>footer</footer>
+</body>
+</html>
+```
+
+代码效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab9446b6d71e9?w=528&h=686&f=png&s=8366)
+
+### 4.4 自适应绝对居中
+```html
+```
+
+代码效果图为：<br>
+![](https://user-gold-cdn.xitu.io/2018/5/29/163ab944630bd9a0?w=710&h=520&f=gif&s=161166)
+不管子元素和父元素尺寸怎么变化，子元素始终居中
