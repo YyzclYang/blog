@@ -1,5 +1,8 @@
 # 更新记录
 
+### 2018.06.28
+[HTML中的一些布局套路](https://github.com/YyzclYang/blog/blob/master/source/2018.06.28%20HTML%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%83%E5%B1%80%E5%A5%97%E8%B7%AF.md)
+
 ### 2018.05.30
 [JSONP学习笔记](https://github.com/YyzclYang/blog/blob/master/source/2018.05.30%20JSONP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
 
