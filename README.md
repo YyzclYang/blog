@@ -1,5 +1,8 @@
 # 更新记录
 
+### 2018.06.30
+[如何发送请求以及AJAX](https://github.com/YyzclYang/blog/blob/master/source/2018.06.30%20%20%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8AAJAX.md)
+
 ### 2018.06.28
 [HTML中的一些布局套路](https://github.com/YyzclYang/blog/blob/master/source/2018.06.28%20HTML%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%83%E5%B1%80%E5%A5%97%E8%B7%AF.md)
 
