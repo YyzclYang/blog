@@ -1,0 +1,226 @@
+AJAX(async JavaScript and XML)，指的是通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。后来，AJAX 这个词就成为 JavaScript 脚本发起 HTTP 通信的代名词，也就是说，只要用脚本发起通信，就可以叫做 AJAX 通信。W3C 也在2006年发布了它的国际标准。
+
+## 如何发请求？
+
+浏览器与服务器之间，采用 HTTP 协议通信。用户在浏览器地址栏键入一个网址，或者通过网页表单向服务器提交内容，这时浏览器就会向服务器发出 HTTP 请求。
+
+我们还可以通过一些其他方式发送请求。
+
+### `<form>`标签
+
+用 `form` 可以发请求，但是会刷新页面或新开页面
+
+```HTML
+<form action="x" method=post>
+  <input type="username" name="username">
+  <input type="submit">
+</form>
+```
+
+![](https://i.loli.net/2018/06/30/5b376ed4ea2ac.png)
+
+当点击提交按钮后，会发出一个`post`的请求（在`form`里的`method`里面设置请求类型）。
+
+![](https://i.loli.net/2018/06/30/5b376e9cc531c.png)
+
+![](https://i.loli.net/2018/06/30/5b376e9cc754f.png)
+
+在图片中可以看到发出了一个路径为`x`的`post`请求（路径设置在`form`的`action`里），请求的内容为`username=123`，（`usernam`在第一个`input`标签的`name`里设置，后面的类容是输入框中的内容）。
+
+### `<a>标签`
+
+用 `a` 可以发 `get` 请求，但是也会刷新页面或新开页面
+
+```HTML
+<a href="x">点击</a>
+```
+
+![](https://i.loli.net/2018/06/30/5b3771f817629.png)
+
+当点击按钮之后，会发出一个`get`请求。
+
+![](https://i.loli.net/2018/06/30/5b3771f824af3.png)
+
+### `<img>标签`
+
+用 `img` 可以发 `get` 请求，但是只能以图片的形式展示
+
+```HTML
+<script>
+  var image = document.createElement('img')
+  image.src = '/x'
+  document.body.appendChild(image)
+</script>
+```
+
+当定义一个`img`标签，设置了`src`路径之后，就会发出一个`get`请求。当在页面中引入这个`img`标签之后，只能以图片的形式展示
+
+![](https://i.loli.net/2018/06/30/5b3773c224990.png)
+![](https://i.loli.net/2018/06/30/5b3773c235a2a.png)
+
+### `<link>标签`
+
+用 `link` 可以发 `get` 请求，但是只能以 `CSS`、`favicon` 的形式展示
+
+```HTML
+<script>
+  var link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = '/x'
+  document.head.appendChild(link)
+</script>
+```
+
+`link`标签只有定义了并引入到页面中之后，才会发出请求，（`img`标签只要定义之后就可以发请求）
+
+![](https://i.loli.net/2018/06/30/5b3775c25da0a.png)
+
+### `<script>标签`
+
+用 `script` 可以发 `get` 请求，但是只能以脚本的形式运行
+
+```HTML
+<script>
+  var script = document.createElement('script')
+  script.src = '/x'
+  document.head.appendChild(script)
+</script>
+```
+
+![](https://i.loli.net/2018/06/30/5b3776df27311.png)
+
+当定义一个`script`标签并引入页面之后，就会发出一个`get`请求
+
+### 进阶
+
+有没有什么方式可以实现
+
+- get、post、put、delete 请求都行
+- 想以什么形式展示就以什么形式展示
+
+## AJAX
+
+利用AJAX可以发出 HTTP 请求，得到服务器返回的数据后，再进行处理。虽然 AJAX 的 X 代表着 XML ，但是目前服务器返回的都是 `JSON` 格式的数据，AJAX字面的含义已经消失了，已经成为了一个通用名词。
+
+具体来说，AJAX 包括以下几个步骤。
+
+- 创建 `XMLHttpRequest` 实例
+- 发出 `HTTP` 请求
+- 接收服务器传回的数据
+- 更新网页数据
+
+### 一个AJAX请求
+```JavaScript
+button.addEventListener("click", e => {
+  let request = new XMLHttpRequest();
+  request.open("GET", "/yyzcl"); //配置request
+  request.setHeader("yyzcl","OK"); //设置请求头
+  request.send("Yyzcl");
+  request.onreadystatechange = () => {
+    if (request.readyState === 4) {
+      let string = request.responseText;  // 获取服务器的返回值，是一个字符串
+      let obj = window.JSON.parse(string);  // 把符合JSON语法的字符串转换为JS对应的值（可以是对象，字符串等）
+    }
+  };
+});
+```
+
+- 配置request
+`open`是用来配置`request`的，其一共可以传递5个参数，来看看`MDN`的解释。
+```JavaScript
+void open(
+   DOMString method,
+   DOMString url,
+   optional boolean async,
+   optional DOMString user,
+   optional DOMString password
+);
+```
+第一个参数是请求方式，第二个参数是请求地址，后面的参数一般不改，使用默认设置，所以一般只设置两个参数。
+
+- 请求状态
+`readyState`表示请求的状态，其一共有5种状态。
+
+值 |               状态             	| 描述
+-  | ------------------------------- | -------
+0	 |  UNSENT (未打开)                	| open()方法还未被调用.
+1  |	OPENED  (未发送)	              | open()方法已经被调用.
+2  |	HEADERS_RECEIVED (已获取响应头)	| send()方法已经被调用, 响应头和响应状态已经返回.
+3  |	LOADING (正在下载响应体)       	| 响应体下载中; responseText中已经获取了部分数据.
+4  |	DONE (请求完成)               	| 整个请求过程已经完毕.
+
+从第二个值可以得到一个额外信息，客户端是分段下载响应体的。
+
+- 请求头
+[`setHeader`](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/setRequestHeader)是用来设置请求头的,以`key:value`的格式设置。
+
+- 请求体
+[`send`](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/send)是用来设置请求体的，是一个字符串的形式。
+
+### AJAX解析
+来看看之前那个AJAX请求。
+```JavaScript
+button.addEventListener("click", e => {
+  let request = new XMLHttpRequest();
+  request.open("GET", "/yyzcl");
+  request.setHeader("yyzcl","OK");
+  request.send("Yyzcl");
+  request.onreadystatechange = () => {
+    if (request.readyState === 4) {
+      let string = request.responseText;
+      let obj = window.JSON.parse(string);
+    }
+  };
+});
+```
+
+- `open`是用来设置HTTP请求的第一部分的
+- `setHeader`是用来设置请求头的第二部分的，第二部分有些信息是浏览器自动设置的
+- `send`是用来设置请求头的第四部分的, `get`请求也可设置第四部分，不报错，但不起作用
+
+### 响应体解析
+
+`request.status`、`request.statusText`是响应体的第一部分
+
+`request.getAllResponseHeaders()`或者`request.getResponseHeader()`是响应体的第二部分
+
+`request.responseText`是响应体的第四部分
+
+## AJAX的同源政策
+
+AJAX 只能向同源网址（**协议**、**域名**、**端口**都相同）发出 HTTP 请求，如果发出跨域请求，就会报错
+
+比如：
+
+`https://www.github.com`不能向`http://www.github.com`发送AJAX请求
+
+`http://github.com`不能向`http://www.github.com`发送AJAX请求
+
+`http://www.github.com:80`不能向`http://www.github.com:81`发送AJAX请求
+
+### CORS
+
+CORS 是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出`XMLHttpRequest`请求，从而克服了AJAX只能同源使用的限制。
+
+如果 A 想利用`JavaScript`向 B 网站发送 AJAX 请求，那么只需要在 B 的后端写上：
+`response.setHeader('Access-Control-Allow-Origin',' A 网站的 **协议** + **域名** + **端口号**')`
+
+就可以实现 AJAX 的跨域请求。
+
+## JSON
+
+[JSON](https://www.json.org/)（JavaScript Object Notation）是一种由道格拉斯·克罗克福特构想和设计、轻量级的数据交换语言，JSON是JavaScript的一个子集，但JSON是独立于语言的文本格式，并且采用了类似于C语言家族的一些习惯。
+
+`JSON`的数据格式有`string`、`number`、`object`、`array`、`true`、`false`、`null`，和JavaScript还是有一些区别的。
+
+JavaScript              | JSON
+----------------------- | -----
+undefined               | 没有
+null                    | null
+['A','B']/["A","B"]     | ["A","B"]
+function fn(){}         | 没有
+{name: 'yyzcl'/"yyzcl"} | {"name": "yyzcl"}
+'yyzcl'/"yyzcl"         | "yyzcl" 
+var a={}                | JSON没有变量
+{__proto__}             | JSON没有原型链
+
