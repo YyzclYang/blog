@@ -1,5 +1,11 @@
 # 更新记录
 
+### 2018.07.03
+[利用 JavaScript 模拟类](https://github.com/YyzclYang/blog/blob/master/source/2018.07.03%20%E5%88%A9%E7%94%A8%20JavaScript%20%E6%A8%A1%E6%8B%9F%E7%B1%BB.md)
+
+### 2018.07.02
+[JavaScript 的一点小技巧](https://github.com/YyzclYang/blog/blob/master/source/2018.07.02%20JavaScript%20%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8A%80%E5%B7%A7.md)
+
 ### 2018.07.01
 [Promise初体验](https://github.com/YyzclYang/blog/blob/master/source/2018.07.01%20Promise%E5%88%9D%E4%BD%93%E9%AA%8C.md)
 
