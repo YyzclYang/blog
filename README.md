@@ -1,5 +1,8 @@
 # 更新记录
 
+### 2018.07.04
+[记一次解决问题的过程](https://github.com/YyzclYang/blog/blob/master/source/2018.07.04%20%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B.md)
+
 ### 2018.07.03
 [利用 JavaScript 模拟类](https://github.com/YyzclYang/blog/blob/master/source/2018.07.03%20%E5%88%A9%E7%94%A8%20JavaScript%20%E6%A8%A1%E6%8B%9F%E7%B1%BB.md)
 
