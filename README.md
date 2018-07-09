@@ -1,5 +1,8 @@
 # 更新记录
 
+### 2018.07.09
+[BFC 初体验](https://github.com/YyzclYang/blog/blob/master/source/2018.07.09%20BFC%20%E5%88%9D%E4%BD%93%E9%AA%8C.md)
+
 ### 2018.07.04
 [记一次解决问题的过程](https://github.com/YyzclYang/blog/blob/master/source/2018.07.04%20%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%9A%84%E8%BF%87%E7%A8%8B.md)
 
