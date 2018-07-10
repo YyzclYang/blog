@@ -1,7 +1,11 @@
 # 更新记录
 
 ### 2018.07.11
+<<<<<<< HEAD
 [记一次错误的解决(`<pre>`标签)](https://github.com/YyzclYang/blog/blob/master/source/2018.07.11%20%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%88%3Cpre%3E%E6%A0%87%E7%AD%BE%EF%BC%89.md)
+=======
+[记一次错误的解决( pre 标签)](https://github.com/YyzclYang/blog/blob/master/source/2018.07.11%20%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3(%20pre%20%E6%A0%87%E7%AD%BE).md)
+>>>>>>> 7678570ba0fd95ff69dff03661983c1d9ed79cbb
 
 ### 2018.07.09
 [BFC 初体验](https://github.com/YyzclYang/blog/blob/master/source/2018.07.09%20BFC%20%E5%88%9D%E4%BD%93%E9%AA%8C.md)
