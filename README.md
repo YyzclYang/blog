@@ -1,5 +1,8 @@
 # 更新记录
 
+### 2018.07.31
+[关于 Session、LocalStorage、缓存的一点点理解](https://github.com/YyzclYang/notes/blob/master/source/%E5%85%B3%E4%BA%8E%20Session%E3%80%81LocalStorage%E3%80%81%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E7%90%86%E8%A7%A3.md)
+
 ### 2018.07.23
 [初次接触 Cookie](https://github.com/YyzclYang/blog/blob/master/source/2018.07.23%20%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%20Cookie.md)
 
