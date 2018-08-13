@@ -1,3 +1,5 @@
+此处停止更新，后续笔记写在[Issues](https://github.com/YyzclYang/notes/issues)里。
+
 # 更新记录
 
 ### 2018.08.13
